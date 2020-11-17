@@ -1,0 +1,293 @@
+// --- fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+// font-family: 'Roboto', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@900&display=swap');
+// font-family: 'Roboto Slab', serif;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+// font-family: 'Montserrat', sans-serif;
+// === / fonts
+// --- mixins
+// === / mixins
+// --- variables
+$screen_xs_max: 575.98px;
+$screen_sm_max: 767.98px;
+$screen_md_max: 991.98px;
+$screen_lg_max: 1199.98px;
+$screen_xl_max: 1399.98px;
+$screen_sm: 576px;
+$screen_md: 768px;
+$screen_lg: 992px;
+$screen_xl: 1200px;
+$screen_xxl: 1400px;
+// === / variables
+// --- commons
+* {
+    box-sizing: border-box;
+}
+
+.body {
+    // position: relative;
+    // height: 100%;
+    font-family: 'Roboto', sans-serif;
+    a,
+    a:hover {
+        text-decoration: none;
+        margin: 0;
+        padding: 0;
+        color: #fff;
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+    .swiper-container {
+        width: 100%;
+        height: 100vh;
+        overflow: visible;
+    }
+    .container {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+}
+
+section {
+    // padding-top: 50px;
+    // padding-bottom: 50px;
+    overflow: hidden;
+}
+
+// === / commons
+// --- intro
+.intro {
+    background: url(../img/intro-mobile.jpg) no-repeat 50% 0%;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        background-color: rgba(#000, .25);
+    }
+    .container {
+        position: relative;
+        z-index: 1;
+    }
+    .contacts_list {
+        margin-top: 40px;
+    }
+    .brand_title {
+        font-family: 'Roboto Slab', serif;
+        text-transform: uppercase;
+        color: #fff;
+        position: relative;
+        max-width: 200px;
+        span {
+            position: relative;
+            z-index: 1;
+            font-size: 36px;
+            font-weight: 900;
+            line-height: 1.4;
+        }
+        &::before {
+            content: "";
+            position: absolute;
+            z-index: 0;
+            top: 2px;
+            left: 93px;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            background-color: rgba($color: #EB5757, $alpha: .5);
+        }
+    }
+    p {
+        font-size: 24px;
+        color: #fff;
+        text-align: center;
+    }
+    .intro_preview {
+        font-size: 36px;
+        color: #fff;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    .menu_area {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        z-index: 4;
+        &::after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            bottom: -100px;
+            left: 50%;
+            margin-left: -50px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            transition: .3s;
+            background-color: #fff;
+        }
+        .menu_wrap {
+            opacity: 0;
+            visibility: hidden;
+            transition: .4s;
+            position: relative;
+            z-index: 2;
+            transform: translate(50px, 500px) scale(.1);
+            padding: 40px 25px 70px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            .menu {
+                li+li {
+                    margin-top: 15px;
+                }
+                .menu_item a {
+                    white-space: nowrap;
+                    font-weight: bold;
+                    font-size: 30px;
+                    letter-spacing: 0.02em;
+                    -webkit-text-stroke: 1px #000;
+                    transition: .3s;
+                    &:hover {
+                        color: #000;
+                    }
+                }
+            }
+            .messenger_list {
+                display: flex;
+                justify-content: center;
+                li+li {
+                    margin-left: 15px;
+                }
+                a {
+                    display: inline-flex;
+                    justify-content: center;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    background: rgba($color: #EB5757, $alpha: .5);
+                }
+            }
+            .phones_list {
+                text-align: center;
+                a {
+                    font-family: 'Montserrat', sans-serif;
+                    font-size: 24px;
+                    text-align: center;
+                    color: #000000;
+                }
+            }
+        }
+        .menu_toggle {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            z-index: 5;
+            margin-left: -50px;
+            padding-top: 10px;
+            border-radius: 50%;
+            background-color: rgba($color: #EB5757, $alpha: .5);
+            .item_top {
+                margin-top: 6px;
+            }
+            .item_mid {
+                margin-top: 15px;
+            }
+            .item_bot {
+                margin-top: 24px;
+            }
+            .menu_item {
+                position: absolute;
+                left: 50%;
+                margin-left: -18px;
+                width: 36px;
+                height: 3px;
+                border-radius: 3px;
+                background-color: #fff;
+                transition: .3s;
+            }
+        }
+        &.activated {
+            &::after {
+                transform: translateY(-500px) scale(15);
+            }
+            .menu_wrap {
+                opacity: 1;
+                visibility: visible;
+                transform: translate(0) scale(1);
+            }
+            .menu_toggle {
+                .menu_item {
+                    transform: rotate(45deg);
+                }
+                .item_bot,
+                .item_top {
+                    margin-top: 15px;
+                    transform: rotate(135deg);
+                }
+            }
+        }
+    }
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------------------------------------------------------------------------------------
+}
+
+// === / intro
+// --- promo
+.promo {
+    .image_wrap {
+        position: relative;
+        &::after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba($color: #000, $alpha: .2);
+        }
+    }
+    p {
+        margin-top: 100px;
+        margin-bottom: 100px;
+        font-size: 22px;
+    }
+}
+
+// === / promo
+// --- steps
+.steps {}
+
+// === / steps
+// --- vacancies
+.vacancies {}
+
+// === / vacancies
+// --- advantages
+.advantages {}
+
+// === / advantages
+// --- requirements
+.requirements {}
+
+// === / requirements
+// --- feedback
+.feedback {}
+
+// === / feedback
+// --- faq
+.faq {}
+
+// === / faq

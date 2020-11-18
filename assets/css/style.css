@@ -19,7 +19,6 @@
     width: 100%;
     height: 100vh;
     /* mobile viewport bug fix */
-    min-height: -webkit-fill-available;
     /* Fallback for browsers that do not support Custom Properties */
     overflow: visible; }
   .body .container {

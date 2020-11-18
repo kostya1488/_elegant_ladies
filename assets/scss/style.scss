@@ -45,7 +45,7 @@ $screen_xxl: 1400px;
         height: 100vh;
         // min-height: 100vh;
         /* mobile viewport bug fix */
-        min-height: -webkit-fill-available;
+        // min-height: -webkit-fill-available;
         // height: 640px;
         /* Fallback for browsers that do not support Custom Properties */
         // height: calc(var(--vh, 1vh) * 100);

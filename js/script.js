@@ -10,7 +10,7 @@ $(document).ready(function() {
     });
 
     let h = window.innerHeight
-    $('.swiper-container').css('height', h)
+        // $('.swiper-container').css('height', h);
 
 });
 

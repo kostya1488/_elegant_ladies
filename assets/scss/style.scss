@@ -5,8 +5,17 @@
 // font-family: 'Roboto Slab', serif;
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 // font-family: 'Montserrat', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+// font-family: 'Inter', sans-serif;
 // === / fonts
 // --- mixins
+@mixin pink_circle ($d) {
+    height: $d;
+    width: $d;
+    background-color: rgba($color: #EB5757, $alpha: .5);
+    border-radius: 50%;
+}
+
 // === / mixins
 // --- variables
 $screen_xs_max: 575.98px;
@@ -28,6 +37,7 @@ $screen_xxl: 1400px;
 .body {
     // position: relative;
     // height: 100%;
+    height: 100vh;
     font-family: 'Roboto', sans-serif;
     a,
     a:hover {
@@ -41,19 +51,32 @@ $screen_xxl: 1400px;
         padding: 0;
     }
     .swiper-container {
-        width: 100%;
         height: 100vh;
-        // min-height: 100vh;
-        /* mobile viewport bug fix */
-        // min-height: -webkit-fill-available;
-        // height: 640px;
-        /* Fallback for browsers that do not support Custom Properties */
-        // height: calc(var(--vh, 1vh) * 100);
-        overflow: visible;
+        height: calc(var(--vh, 1vh) * 100);
     }
     .container {
         padding-left: 25px;
         padding-right: 25px;
+    }
+    .section_title {
+        font-weight: 900;
+        font-size: 24px;
+        letter-spacing: 0.005em;
+        text-transform: uppercase;
+        color: #000000;
+        display: inline-block;
+        position: relative;
+        margin-bottom: 40px;
+        &::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            @include pink_circle(50px);
+            right: 0;
+            margin-right: -25px;
+            top: 50%;
+            margin-top: -25px;
+        }
     }
 }
 
@@ -104,10 +127,7 @@ section {
             z-index: 0;
             top: 2px;
             left: 93px;
-            border-radius: 50%;
-            width: 100px;
-            height: 100px;
-            background-color: rgba($color: #EB5757, $alpha: .5);
+            @include pink_circle(100px)
         }
     }
     p {
@@ -177,10 +197,7 @@ section {
                 a {
                     display: inline-flex;
                     justify-content: center;
-                    width: 50px;
-                    height: 50px;
-                    border-radius: 50%;
-                    background: rgba($color: #EB5757, $alpha: .5);
+                    @include pink_circle(50px);
                 }
             }
             .phones_list {
@@ -194,16 +211,13 @@ section {
             }
         }
         .menu_toggle {
-            width: 100px;
-            height: 100px;
             position: absolute;
+            @include pink_circle(100px);
             bottom: -50px;
             left: 50%;
             z-index: 5;
             margin-left: -50px;
             padding-top: 10px;
-            border-radius: 50%;
-            background-color: rgba($color: #EB5757, $alpha: .5);
             .item_top {
                 margin-top: 6px;
             }
@@ -252,7 +266,10 @@ section {
 // === / intro
 // --- promo
 .promo {
+    display: flex;
+    flex-direction: column;
     .image_wrap {
+        flex: auto;
         position: relative;
         &::after {
             content: "";
@@ -264,17 +281,93 @@ section {
             height: 100%;
             background-color: rgba($color: #000, $alpha: .2);
         }
+        .image_promo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
-    p {
-        margin-top: 100px;
-        margin-bottom: 100px;
+    .promo_text {
+        margin: 0;
+        padding-top: 60px;
+        padding-bottom: 60px;
         font-size: 22px;
+        position: relative;
+        overflow: hidden;
+        .promo_figure {
+            position: absolute;
+            @include pink_circle(100px);
+            &--1 {
+                top: 0;
+                right: 0;
+                margin-top: -60px;
+                // margin-right: 0px;
+            }
+            &--2 {
+                top: 0;
+                right: 0;
+                margin-top: -56px;
+                margin-right: 20px;
+            }
+            &--3 {
+                bottom: 0;
+                margin-bottom: -60px;
+            }
+            &--4 {
+                bottom: 0;
+                margin-bottom: -56px;
+                margin-left: 20px;
+            }
+        }
     }
 }
 
 // === / promo
 // --- steps
-.steps {}
+.steps {
+    padding: 50px 0;
+    .container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    ol {
+        flex: auto;
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        counter-reset: my-counter;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        max-height: 100%;
+    }
+    li {
+        font-weight: 300;
+        font-size: 20px;
+        color: #000000;
+        &::before {
+            content: counter(my-counter);
+            counter-increment: my-counter;
+            margin-right: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            @include pink_circle(32px);
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 18;
+            letter-spacing: 0.133333px;
+            color: #FFFFFF;
+        }
+    }
+    .v-line {
+        border-left: 1px solid #C4C4C4;
+        height: 100%;
+        width: 1px;
+        margin: 6px 15.5px;
+    }
+}
 
 // === / steps
 // --- vacancies

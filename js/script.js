@@ -1,25 +1,26 @@
 $(document).ready(function() {
-    // if ($('body').hasClass('mobile')) {
-    //     //добавляем inline стиль, в котором фиксируем высоту титульного блока
-    //     $('.main').css({ height: window.innerHeight });
-    // }
 
     $('.menu_toggle').click(function(e) {
         e.preventDefault();
         $('.menu_area').toggleClass('activated');
     });
 
-    let h = window.innerHeight
-    $('.swiper-container').css('height', h);
-    console.log(h)
+});
+// --------------------------------------------
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', vh + 'px');
 
+window.addEventListener('resize', () => {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', vh + 'px');
 });
 
-// let vh = window.innerHeight * 0.01;
-// document.documentElement.style.setProperty('--vh', `${vh}px`);
+// --------------------------------------------
+// --------------------------------------------
 
-// window.addEventListener('resize', () => {
-//     // We execute the same script as before
-//     let vh = window.innerHeight * 0.01;
-//     document.documentElement.style.setProperty('--vh', `${vh}px`);
-// });
+let text = document.querySelector('.promo_text');
+let image = document.querySelector('.image_wrap');
+
+image.style.height = window.innerHeight - text.offsetHeight + "px";
+// --------------------------------------------
+// --------------------------------------------

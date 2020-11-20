@@ -4,6 +4,14 @@ $(document).ready(function() {
         e.preventDefault();
         $('.menu_area').toggleClass('activated');
     });
+
+    $('.nav_link').click(function(e) {
+        e.preventDefault();
+        $ind = $(this).attr('slideTo');
+        // swiper from swiper.js
+        swiper.slideTo($ind);
+    });
+
 });
 // --------------------------------------------
 let vh = window.innerHeight * 0.01;

@@ -55,6 +55,63 @@
       margin-right: -25px;
       top: 50%;
       margin-top: -25px; }
+  .body .button {
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #EB5757;
+    padding: 10px 35px;
+    border: 2px solid #EB5757;
+    border-radius: 5px;
+    min-width: 250px;
+    background-color: #fff;
+    outline: none;
+    transition: .2s; }
+    .body .button:active {
+      transform: scale(0.95);
+      color: #FFFFFF;
+      background-color: #EB5757; }
+  .body .messenger_list {
+    display: flex;
+    justify-content: center; }
+    .body .messenger_list li + li {
+      margin-left: 15px; }
+    .body .messenger_list a {
+      display: inline-flex;
+      justify-content: center;
+      height: 50px;
+      width: 50px;
+      background-color: rgba(235, 87, 87, 0.5);
+      border-radius: 50%; }
+  .body .phones_list {
+    text-align: center; }
+    .body .phones_list a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 24px;
+      text-align: center;
+      color: #000000; }
+  .body .brand_title {
+    font-family: 'Roboto Slab', serif;
+    text-transform: uppercase;
+    color: #000;
+    position: relative;
+    max-width: 200px;
+    margin-top: 20px; }
+    .body .brand_title span {
+      position: relative;
+      z-index: 1;
+      font-size: 36px;
+      font-weight: 900;
+      line-height: 1.4; }
+    .body .brand_title::before {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      top: 2px;
+      left: 93px;
+      height: 100px;
+      width: 100px;
+      background-color: rgba(235, 87, 87, 0.5);
+      border-radius: 50%; }
 
 section {
   padding-top: 40px;
@@ -80,28 +137,7 @@ section {
   .intro .contacts_list {
     margin-top: 40px; }
   .intro .brand_title {
-    font-family: 'Roboto Slab', serif;
-    text-transform: uppercase;
-    color: #fff;
-    position: relative;
-    max-width: 200px;
-    margin-top: 20px; }
-    .intro .brand_title span {
-      position: relative;
-      z-index: 1;
-      font-size: 36px;
-      font-weight: 900;
-      line-height: 1.4; }
-    .intro .brand_title::before {
-      content: "";
-      position: absolute;
-      z-index: 0;
-      top: 2px;
-      left: 93px;
-      height: 100px;
-      width: 100px;
-      background-color: rgba(235, 87, 87, 0.5);
-      border-radius: 50%; }
+    color: #fff; }
   .intro p {
     font-size: 24px;
     color: #fff;
@@ -152,25 +188,6 @@ section {
         transition: .3s; }
         .intro .menu_area .menu_wrap .menu .menu_item a:hover {
           color: #000; }
-      .intro .menu_area .menu_wrap .messenger_list {
-        display: flex;
-        justify-content: center; }
-        .intro .menu_area .menu_wrap .messenger_list li + li {
-          margin-left: 15px; }
-        .intro .menu_area .menu_wrap .messenger_list a {
-          display: inline-flex;
-          justify-content: center;
-          height: 50px;
-          width: 50px;
-          background-color: rgba(235, 87, 87, 0.5);
-          border-radius: 50%; }
-      .intro .menu_area .menu_wrap .phones_list {
-        text-align: center; }
-        .intro .menu_area .menu_wrap .phones_list a {
-          font-family: 'Montserrat', sans-serif;
-          font-size: 24px;
-          text-align: center;
-          color: #000000; }
     .intro .menu_area .menu_toggle {
       position: absolute;
       height: 100px;
@@ -448,11 +465,17 @@ section {
   text-transform: uppercase;
   color: #EB5757;
   padding: 0 11px;
-  border-bottom: 1px solid #eb5757;
-  text-align: center;
-  margin-bottom: 30px; }
-  .feedback .feedback_title.collapsed {
-    border-bottom: 1px solid rgba(235, 87, 87, 0); }
+  border-bottom: 1px solid rgba(235, 87, 87, 0);
+  text-align: center; }
+  .feedback .feedback_title.active {
+    padding: 0 11px;
+    color: #EB5757;
+    border-bottom: 1px solid #eb5757; }
+
+.feedback .tab-content {
+  flex: auto; }
+  .feedback .tab-content .tab-pane {
+    height: 100%; }
 
 .feedback .input_text {
   font-weight: 300;
@@ -474,7 +497,6 @@ section {
   border-bottom: 1px solid #F1F2F3; }
 
 .feedback .slider {
-  margin-top: 20px;
   width: 100%;
   position: relative; }
   .feedback .slider input[type="range"] {
@@ -508,9 +530,9 @@ section {
     background: #000;
     border-radius: 50%;
     transition: all .3s ease; }
-  .feedback .slider .range {
+  .feedback .slider #range {
     width: 100%; }
-  .feedback .slider .bubble {
+  .feedback .slider #bubble {
     position: absolute;
     margin-top: -15px;
     width: 30px;
@@ -518,3 +540,45 @@ section {
     left: 50%;
     font-size: 14px;
     transform: translateX(-50%); }
+
+.feedback .radio_wrap .radio_item {
+  position: relative; }
+  .feedback .radio_wrap .radio_item input[type="radio"] {
+    position: absolute;
+    visibility: hidden; }
+  .feedback .radio_wrap .radio_item label {
+    display: inline-flex;
+    align-items: center; }
+  .feedback .radio_wrap .radio_item .radio_check {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #EB5757;
+    margin-right: 15px; }
+  .feedback .radio_wrap .radio_item input[type="radio"]:checked + label .radio_check {
+    background-color: #EB5757;
+    background-image: url(../img/svg/check.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%; }
+
+.faq .accordion {
+  flex: auto; }
+  .faq .accordion .item_title {
+    font-size: 15px;
+    color: #EB5757;
+    padding: 10px 15px;
+    transition: .3s;
+    border-bottom: 1px solid #F1F2F3; }
+  .faq .accordion .collapsed .item_title {
+    color: #000000; }
+  .faq .accordion .item_description {
+    padding: 20px 15px 30px;
+    font-size: 14px;
+    color: #000000;
+    font-weight: 300; }
+
+.contacts .contacts_wrap {
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }

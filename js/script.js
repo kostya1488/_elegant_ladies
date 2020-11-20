@@ -15,17 +15,15 @@ window.addEventListener('resize', () => {
 });
 
 // --------------------------------------------
-// --------------------------------------------
+// input range slider
+const bubble = document.getElementById("bubble");
+const range = document.getElementById("range");
 
-const range = document.querySelector(".range");
-const bubble = document.querySelector(".bubble");
+setBubble();
+range.addEventListener("input", setBubble)
 
-
-range.addEventListener("input", setBubble(range, bubble));
-
-function setBubble(range, bubble) {
-    const val = range.value;
-
+function setBubble() {
+    const val = range.value
     const min = range.min;
     const max = range.max;
 
@@ -34,3 +32,4 @@ function setBubble(range, bubble) {
     bubble.innerHTML = val;
     bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
 }
+// --------------------------------------------

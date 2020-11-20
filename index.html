@@ -312,61 +312,184 @@
             <!-- feedback -->
             <section id="feedback" class="feedback swiper-slide">
                 <div class="container section_inner_wrap">
-
-                    <div class="accordion" id="accordionExample">
-                        <div class="feedback_title__wrap d-flex justify-content-around">
-                            <div class="feedback_title" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <nav>
+                        <div class="nav d-flex justify-content-around mb-4" id="nav-tab" role="tablist">
+                            <a class="feedback_title active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">
                                 Анкета
-                            </div>
-                            <div class="feedback_title collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            </a>
+                            <a class="feedback_title" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">
                                 Звонок
-                            </div>
+                            </a>
                         </div>
+                    </nav>
 
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                            <form action="" class="feedback_form">
-                                <input class="input mt-0" type="text" name="name" placeholder="Имя*" required>
-                                <input class="input" type="tel*" name="tel" placeholder="Телефон" required>
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active " id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                            <form id="feedback_form" class="section_inner_wrap justify-content-around">
+                                <input class="input" type="text" name="name" placeholder="Имя*" required>
+                                <input class="input" type="tel*" name="tel" placeholder="Телефон*" required>
                                 <input class="input" type="email" name="email" placeholder="email">
                                 <input class="input" type="text" name="insta" placeholder="instagram">
-
                                 <div class="slider">
-                                    <div class="input_text mb-3">
+                                    <div class="input_text mb-4">
                                         <div class="">Сколько вам лет ?</div>
                                         <div class="input_text--small">от 18 до 45</div>
                                     </div>
-                                    <input type="range" class="range" min="18" max="45" value="21">
-                                    <output class="bubble">21</output>
+                                    <input type="range" id="range" min="18" max="45" value="22">
+                                    <output id="bubble"></output>
                                 </div>
-                                <div class="input_text ">
-                                    Есть ли у вас опыт в эскорте?
+                                <div class="radio_wrap">
+                                    <div class="input_text mb-3">
+                                        Есть ли у вас опыт в эскорте?
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="col radio_item">
+                                            <input type="radio" class="" id="radio_yes" name="exp" value="Yes">
+                                            <label for="radio_yes" class="input_text">
+                                                    <span class="radio_check"></span>
+                                                    <span>Да</span>
+                                                </label>
+                                        </div>
+                                        <div class="col radio_item">
+                                            <input type="radio" class="" id="radio_no" name="exp" value="No" checked>
+                                            <label for="radio_no" class="input_text">
+                                                    <span class="radio_check"></span>
+                                                    <span>Нет</span>
+                                                </label>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="radio d-flex">
-                                    <input type="radio" class="radio_item" id="radio_yes" name="exp" value="Yes">
-                                    <label for="radio_yes" class="input_text">Да</label>
 
-                                    <input type="radio" class="radio_item" id="radio_no" name="exp" value="No" checked>
-                                    <label for="radio_no" class="input_text">Нет</label>
+                                <div class="form_button text-center mt-3">
+                                    <button class="button">Отправить анкету</button>
                                 </div>
                             </form>
                         </div>
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                            <div class="card-body">
-                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-                                on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
-                                beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                            </div>
+                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                            <form id="callback_form" class="section_inner_wrap justify-content-center">
+                                <div class="">
+                                    <input class="input" type="text" name="name" placeholder="Имя*" required>
+                                    <input class="input my-5" type="tel*" name="tel" placeholder="Телефон*" required>
+                                </div>
+
+                                <div class="form_button text-center mt-5">
+                                    <button class="button">Отправить анкету</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
-
                 </div>
             </section>
             <!-- / feedback -->
             <!-- faq -->
             <section class="faq swiper-slide">
-                Slide 8
+                <div class="container section_inner_wrap">
+                    <div class="faq_title">
+                        <div class="section_title">
+                            faq
+                        </div>
+                    </div>
+                    <div class="accordion section_inner_wrap justify-content-around" id="accordionExample">
+                        <div class="faq_item">
+                            <div class=" mt-0" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <div class="item_title">
+                                    Какие клиенты пользуются услугами ?
+                                </div>
+                            </div>
+                            <div id="collapseOne" class=" collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                <div class="item_description">
+                                    beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq_item">
+                            <div class="collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <div class="item_title">
+                                    Вы гарантируете мне конфиденциальность?
+                                </div>
+                            </div>
+                            <div id="collapseTwo" class=" collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                <div class="item_description">
+                                    sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh hel beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq_item">
+                            <div class="collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <div class="item_title">
+                                    Бывают ли у эскорт девушек выходные?
+                                </div>
+                            </div>
+                            <div id="collapseThree" class=" collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                <div class="item_description">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
+                                    on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh
+                                </div>
+                            </div>
+                        </div>
+                        <!--  -->
+                        <div class="faq_item">
+                            <div class="collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                <div class="item_title">
+                                    По каким городам проходит работа?
+                                </div>
+                            </div>
+                            <div id="collapseFour" class=" collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                <div class="item_description">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq_item">
+                            <div class="collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                <div class="item_title">
+                                    По какому графику работают девушки?
+                                </div>
+                            </div>
+                            <div id="collapseFive" class=" collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                <div class="item_description">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
             <!-- / faq -->
+            <!-- contacts -->
+            <section id="contacts" class="contacts swiper-slide">
+                <div class="container section_inner_wrap">
+                    <div class="contacts_title">
+                        <div class="section_title">контакты</div>
+                    </div>
+                    <div class="contacts_wrap">
+                        <ul class="messenger_list">
+                            <li>
+                                <a href=""><img src="assets/img/svg/tg.svg" alt=""></a>
+                            </li>
+                            <li>
+                                <a href=""><img src="assets/img/svg/insta.svg" alt=""></a>
+                            </li>
+                            <li>
+                                <a href=""><img src="assets/img/svg/viber.svg" alt=""></a>
+                            </li>
+                        </ul>
+                        <ul class="phones_list mt-5">
+
+                            <li>
+                                <a href="tel:+">+ (380) 93 125 45 68</a>
+                            </li>
+                            <li class="mt-3">
+                                <a href="tel:+">+ (380) 93 125 45 68</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="brand_title">
+                        <span>elegant ladies</span>
+                    </div>
+                </div>
+            </section>
+            <!-- / contacts -->
         </div>
         <!-- Add Pagination -->
         <!-- <div class="swiper-pagination"></div> -->

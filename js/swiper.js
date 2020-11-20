@@ -2,7 +2,7 @@ var swiper = new Swiper('.swiper-container', {
     direction: 'vertical',
     mousewheel: true,
     effect: 'coverflow',
-    initialSlide: 6,
+    initialSlide: 8,
     coverflowEffect: {
         rotate: 50,
         stretch: 0,

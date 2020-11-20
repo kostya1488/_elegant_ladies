@@ -2,8 +2,10 @@ var swiper = new Swiper('.swiper-container', {
     direction: 'vertical',
     mousewheel: true,
     effect: 'coverflow',
-    hashNavigation: {
-        replaceState: true,
+    breakpoints: {
+        576: {
+            effect: false,
+        },
     }
 });
 
@@ -12,7 +14,17 @@ var swiperAdvantages = new Swiper('.swiper-advantages', {
     spaceBetween: 30,
     pagination: {
         el: '.swiper-pagination',
-        // clickable: true,
-        // dynamicBullets: true,
     },
+})
+
+var swiperIntro = new Swiper('.swiper-intro', {
+    autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+    },
+    spaceBetween: 30,
+
+    loop: true,
+    speed: 1000,
+    // centerSlides: true,
 })

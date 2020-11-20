@@ -12,7 +12,7 @@ var swiperAdvantages = new Swiper('.swiper-advantages', {
     spaceBetween: 30,
     pagination: {
         el: '.swiper-pagination',
-        clickable: true,
-        dynamicBullets: true,
+        // clickable: true,
+        // dynamicBullets: true,
     },
 })

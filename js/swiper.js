@@ -2,6 +2,7 @@ var swiper = new Swiper('.swiper-container', {
     direction: 'vertical',
     mousewheel: true,
     effect: 'coverflow',
+    initialSlide: 6,
     coverflowEffect: {
         rotate: 50,
         stretch: 0,
@@ -10,3 +11,13 @@ var swiper = new Swiper('.swiper-container', {
         slideShadows: true,
     }
 });
+
+var swiperAdvantages = new Swiper('.swiper-advantages', {
+    slidesPerView: 'auto',
+    spaceBetween: 30,
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        dynamicBullets: true,
+    },
+})

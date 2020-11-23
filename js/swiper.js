@@ -1,7 +1,8 @@
 var swiper = new Swiper('.swiper-container', {
     direction: 'vertical',
     mousewheel: true,
-    effect: 'coverflow',
+    // effect: 'coverflow',
+    initialSlide: 4,
     breakpoints: {
         576: {
             effect: false,
@@ -12,10 +13,15 @@ var swiper = new Swiper('.swiper-container', {
 var swiperAdvantages = new Swiper('.swiper-advantages', {
     slidesPerView: 'auto',
     spaceBetween: 30,
+    breakpoints: {
+        576: {
+            slidesPerView: 2,
+        },
+    },
     pagination: {
         el: '.swiper-pagination',
     },
-})
+});
 
 var swiperIntro = new Swiper('.swiper-intro', {
     autoplay: {
@@ -23,8 +29,6 @@ var swiperIntro = new Swiper('.swiper-intro', {
         disableOnInteraction: false,
     },
     spaceBetween: 30,
-
     loop: true,
     speed: 1000,
-    // centerSlides: true,
-})
+});

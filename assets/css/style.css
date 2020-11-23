@@ -125,9 +125,15 @@
       border-radius: 50%; }
 
 section {
-  padding-top: 40px;
-  padding-bottom: 30px;
   overflow: hidden; }
+  @media (min-width: 576px) and (max-width: 1199.98px) {
+    section {
+      padding-top: 40px;
+      padding-bottom: 30px; } }
+  @media (min-width: 576px) and (max-width: 1199.98px) {
+    section {
+      padding-top: 50px;
+      padding-bottom: 50px; } }
 
 .intro {
   padding: 0;
@@ -302,9 +308,7 @@ section {
             text-align: center; } }
 
 .promo {
-  padding: 0;
-  display: flex;
-  flex-direction: column; }
+  padding: 0; }
   .promo .image_wrap {
     flex: auto;
     position: relative; }
@@ -350,6 +354,18 @@ section {
         bottom: 0;
         margin-bottom: -56px;
         margin-left: 20px; }
+  @media (max-width: 767.98px) {
+    .promo .container {
+      padding: 0; }
+    .promo .promo_text {
+      padding-left: 25px;
+      padding-right: 25px; } }
+  @media (min-width: 576px) and (max-width: 1199.98px) {
+    .promo .container {
+      padding-top: 60px; }
+    .promo .image_wrap {
+      padding-left: 0;
+      padding-right: 0; } }
 
 .steps ol {
   flex: auto;
@@ -388,6 +404,17 @@ section {
   height: 100%;
   width: 1px;
   margin: 6px 15.5px; }
+
+@media (min-width: 576px) and (max-width: 1199.98px) {
+  .steps ol {
+    padding-top: 60px;
+    padding-bottom: 50px;
+    width: 50%;
+    align-self: center; } }
+
+@media (min-width: 1200px) {
+  .steps .v-line {
+    display: none; } }
 
 .vacancies .vacancies_wrap {
   height: 1px;
@@ -457,6 +484,14 @@ section {
       bottom: 0;
       margin-left: -24px;
       margin-bottom: -30px; }
+
+@media (min-width: 576px) and (max-width: 1199.98px) {
+  .vacancies .vacancies_wrap .vacancy {
+    margin-top: 30px; }
+    .vacancies .vacancies_wrap .vacancy .vacancy_name {
+      font-size: 36px; }
+    .vacancies .vacancies_wrap .vacancy .vacancy_price {
+      font-size: 30px; } }
 
 .advantages {
   padding-top: 22px; }

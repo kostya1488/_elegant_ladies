@@ -2,7 +2,7 @@ var swiper = new Swiper('.swiper-container', {
     direction: 'vertical',
     mousewheel: true,
     // effect: 'coverflow',
-    initialSlide: 4,
+    initialSlide: 3,
     breakpoints: {
         576: {
             effect: false,

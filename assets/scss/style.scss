@@ -61,6 +61,10 @@ $screen_xxl: 1400px;
             padding-top: 25px;
             padding-bottom: 25px;
         }
+        @media (min-width: $screen_xxl) {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
     }
     .section_inner_wrap {
         height: 100%;
@@ -101,7 +105,7 @@ $screen_xxl: 1400px;
         color: #EB5757;
         padding: 10px 35px;
         border: 2px solid #EB5757;
-        border-radius: 5px;
+        // border-radius: 5px;
         min-width: 250px;
         background-color: #fff;
         outline: none;
@@ -415,7 +419,7 @@ section {
             }
         }
     }
-    @media (min-width: $screen_xl) and (max-width: $screen_xl_max) {
+    @media (min-width: $screen_xl) {
         background-image: none;
         .container {
             background: url(../img/intro-desktop.jpg) no-repeat 100% 0%;
@@ -433,6 +437,7 @@ section {
         .menu_area {
             height: auto;
             padding-left: 12px;
+            padding-right: 12px;
             bottom: 25px;
             .menu_wrap {
                 padding-top: 0;
@@ -453,15 +458,27 @@ section {
             margin-left: 30%;
         }
     }
-    // @media (min-width: $screen_xxl) {
-    //     .brand_title {
-    //         margin-top: 70px;
-    //     }
-    //     .intro_preview {
-    //         font-size: 35px;
-    //         margin-top: 30px;
-    //     }
-    // }
+    @media (min-width: $screen_xxl) {
+        .menu_area {
+            bottom: 50px;
+            .menu_wrap .menu .menu_item a {
+                font-size: 36px;
+            }
+        }
+        .intro_bottom_text {
+            padding-bottom: 25px;
+        }
+    }
+    @media (min-width: 1900px) {
+        .menu_area {
+            .menu_wrap {
+                align-items: flex-start;
+            }
+        }
+        .swiper-intro {
+            margin-left: 20%;
+        }
+    }
 }
 
 // === / intro
@@ -546,6 +563,9 @@ section {
         }
     }
     @media (min-width: $screen_xl) {
+        .image_wrap {
+            height: inherit;
+        }
         .promo_text {
             overflow: visible;
             padding-top: 0;
@@ -631,10 +651,12 @@ section {
             align-self: center;
         }
     }
-    @media (min-width: $screen_xl) {
+    @media (min-width: $screen_xl) and (max-width: $screen_xl_max) {
         .container {
             padding-bottom: 50px;
         }
+    }
+    @media (min-width: $screen_xl) {
         .v-line {
             display: none;
         }
@@ -716,39 +738,18 @@ section {
             border-radius: 10px;
             overflow: hidden;
             position: relative;
-            &::after {
-                content: "";
-                position: absolute;
-                z-index: 1;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
-            }
-            img {
-                height: 100%;
-                width: 100%;
-                object-fit: cover;
-            }
-            .vacancy_name {
-                font-size: 24px;
-                color: #FFFFFF;
-                padding: 15px 20px;
-                position: absolute;
-                z-index: 2;
-                bottom: 0;
-                left: 0;
-            }
-            .vacancy_price {
-                font-weight: bold;
-                font-size: 24px;
-                color: #FFFFFF;
-                padding: 15px 20px;
-                position: absolute;
-                z-index: 2;
-                top: 0;
-                right: 0;
+            .img_wrap {
+                position: relative;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    z-index: 1;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
+                }
             }
         }
         .vacancies_figure {
@@ -781,7 +782,36 @@ section {
             }
         }
     }
-    @media (min-width: $screen_sm) and (max-width: $screen_lg_max) {
+    @media (max-width: $screen_lg_max) {
+        .vacancy {
+            .vacancy_name,
+            .vacancy_price {
+                font-weight: bold;
+                font-size: 24px;
+                color: #FFFFFF;
+                padding: 15px 20px;
+                position: absolute;
+                z-index: 2;
+            }
+            .vacancy_name {
+                bottom: 0;
+                left: 0;
+            }
+            .vacancy_price {
+                top: 0;
+                right: 0;
+            }
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+            .vacancy_description p {
+                display: none;
+            }
+        }
+    }
+    @media (min-width: $screen_sm) {
         .vacancies_wrap .vacancy {
             margin-top: 30px;
             .vacancy_name {
@@ -792,75 +822,178 @@ section {
             }
         }
     }
+    @media (min-width: $screen_xl) {
+        .vacancies_wrap {
+            flex-direction: row;
+            .vacancy {
+                border-radius: 0px;
+                margin-top: 0;
+                flex: 1;
+                margin-left: 30px;
+                display: flex;
+                flex-direction: column;
+                .img_wrap {
+                    flex: auto;
+                    height: 1px; // формальное значение
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        object-position: top;
+                    }
+                }
+                .vacancy_name {
+                    margin-top: 20px;
+                    font-size: 30px;
+                    padding-bottom: 10px;
+                    border-bottom: 1px solid #EB5757;
+                    margin-bottom: 10px;
+                }
+                .vacancy_price {
+                    text-align: right;
+                    display: inline-block;
+                    font-size: 24px;
+                    padding-bottom: 10px;
+                    border-bottom: 1px solid #EB5757;
+                }
+                .vacancy_description {
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+            .vacancies_figure {
+                &--3 {
+                    left: 0;
+                    bottom: 0;
+                    margin-left: -131px;
+                    margin-bottom: -24px;
+                }
+                &--4 {
+                    left: 0;
+                    bottom: 0;
+                    margin-left: -114px;
+                    margin-bottom: -30px;
+                }
+            }
+        }
+    }
+    @media (min-width: $screen_xl) and (max-width: $screen_xl_max) {
+        .vacancies_wrap {
+            .vacancy_description p {
+                font-size: 14px;
+            }
+            .vacancy .img_wrap img {
+                object-position: 0px -35px;
+            }
+        }
+    }
 }
 
 // === / vacancies
 // --- advantages
 .advantages {
     padding-top: 22px;
-    .swiper-advantages {
-        flex: auto;
-        .swiper-slide {
-            display: flex;
-            align-items: center;
-        }
-        .swiper-pagination-bullets {
-            bottom: 30px;
-        }
-        .swiper-pagination-bullet {
-            width: 15px;
-            height: 15px;
-            background: none;
-            border: 1px solid #000;
-        }
-        .swiper-pagination-bullet-active {
-            position: relative;
-            &::after {
-                content: "";
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                margin-top: -2.5px;
-                margin-left: -2.5px;
-                width: 5px;
-                height: 5px;
-                border-radius: 50%;
-                background-color: #000;
-            }
-        }
-    }
     .advantages_item {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        box-shadow: 0px 0px 4px rgba(235, 87, 87, 0.25);
         border-radius: 10px;
-        padding: 50px 15px 20px;
-        padding-top: 50px;
-        text-align: center;
         position: relative;
         .advantages_icon {
             display: flex;
             justify-content: center;
-            width: 100px;
-            height: 100px;
             border-radius: 50%;
             background-color: #F5ABAB;
             position: absolute;
             top: 0;
-            margin-top: -50px;
         }
         .advantages_title {
-            font-size: 20px;
-            margin: 20px 0;
             text-transform: uppercase;
         }
-        .advantages_description {
-            font-weight: 300;
-            font-size: 20px;
+    }
+    @media (max-width: $screen_lg_max) {
+        .swiper-advantages {
+            flex: auto;
+            .swiper-slide {
+                display: flex;
+                align-items: center;
+            }
+            .swiper-pagination-bullets {
+                bottom: 30px;
+            }
+            .swiper-pagination-bullet {
+                width: 15px;
+                height: 15px;
+                background: none;
+                border: 1px solid #000;
+            }
+            .swiper-pagination-bullet-active {
+                position: relative;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    margin-top: -2.5px;
+                    margin-left: -2.5px;
+                    width: 5px;
+                    height: 5px;
+                    border-radius: 50%;
+                    background-color: #000;
+                }
+            }
+        }
+        .advantages_item {
+            padding: 50px 15px 20px;
+            padding-top: 50px;
+            box-shadow: 0px 0px 4px rgba(235, 87, 87, 0.25);
+            text-align: center;
+            align-items: center;
+            .advantages_icon {
+                width: 100px;
+                height: 100px;
+                margin-top: -50px;
+            }
+            .advantages_title {
+                font-size: 20px;
+                margin: 20px 0;
+            }
+            .advantages_description {
+                font-weight: 300;
+                font-size: 20px;
+            }
         }
     }
-    @media (min-width: $screen_sm) and (max-width: $screen_lg_max) {}
+    @media (min-width: $screen_xl) {
+        .swiper-advantages {
+            flex: auto;
+        }
+        .swiper-wrapper {
+            flex-wrap: wrap;
+            .swiper-slide {
+                width: 50%;
+                height: calc(100%/3);
+                display: flex;
+                align-items: center;
+            }
+        }
+        .advantages_item {
+            padding-left: 90px;
+            padding-right: 20px;
+            .advantages_icon {
+                width: 65px;
+                height: 65px;
+                left: 0;
+                img {
+                    width: 30px;
+                }
+            }
+            .advantages_title {
+                font-size: 20px;
+                font-weight: 500;
+                margin-bottom: 15px;
+            }
+        }
+    }
 }
 
 // === / advantages
@@ -878,16 +1011,62 @@ section {
         height: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
-        li+li {
-            margin-top: 15px;
-        }
         li {
-            padding-left: 35px;
             font-weight: 300;
             font-size: 20px;
-            background: url(../img/svg/pink-marker.svg) no-repeat 0 7px;
-            background-size: 20px;
+            .list_inner_item {
+                padding-left: 35px;
+                background: url(../img/svg/pink-marker.svg) no-repeat 0 7px;
+                background-size: 20px;
+            }
+        }
+    }
+    @media (max-width: $screen_lg_max) {
+        .requirements_list {
+            justify-content: space-around;
+            li+li {
+                margin-top: 15px;
+            }
+        }
+    }
+    @media (min-width: $screen_xl) {
+        .container {
+            max-width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+        }
+        .requirements_container,
+        .list_inner_item {
+            max-width: 1140px;
+            width: 100%;
+            margin: 0 auto;
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+        .requirements_list {
+            li {
+                flex: auto;
+                display: flex;
+                align-items: center;
+                .list_inner_item {
+                    background-image: url(../img/svg/check-black.svg);
+                    background-repeat: no-repeat;
+                    padding-left: 45px;
+                    background-position: 12px 50%;
+                }
+            }
+            li:nth-child(even) {
+                position: relative;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(#EB5757, .25);
+                }
+            }
         }
     }
 }
@@ -908,6 +1087,11 @@ section {
             padding: 0 11px;
             color: #EB5757;
             border-bottom: 1px solid rgba(#EB5757, 1);
+        }
+        &:hover {
+            padding: 0 11px;
+            color: #EB5757;
+            // border-bottom: 1px solid rgba(#EB5757, 1);
         }
     }
     .tab-content {
@@ -1019,6 +1203,27 @@ section {
             }
         }
     }
+    @media (min-width: $screen_xl) {
+        .image_wrap {
+            width: 100%;
+            height: 100%;
+            background: url(../img/feedback_image.jpg) no-repeat 100% 0%;
+            background-size: auto 100%;
+        }
+        .feedback_figure {
+            position: absolute;
+            z-index: -1;
+            @include pink_circle(100px);
+            &--1 {
+                left: 36%;
+                top: 33%;
+            }
+            &--2 {
+                left: 38%;
+                top: 27%;
+            }
+        }
+    }
 }
 
 // === / feedback
@@ -1041,6 +1246,16 @@ section {
             font-size: 14px;
             color: #000000;
             font-weight: 300;
+        }
+    }
+    @media (min-width: $screen_xl) {
+        .accordion {
+            .item_title {
+                font-size: 20px;
+            }
+            .item_description {
+                font-size: 17px;
+            }
         }
     }
 }

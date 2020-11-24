@@ -2,7 +2,7 @@ var swiper = new Swiper('.swiper-container', {
     direction: 'vertical',
     mousewheel: true,
     // effect: 'coverflow',
-    initialSlide: 3,
+    // initialSlide: 1,
     breakpoints: {
         576: {
             effect: false,
@@ -13,14 +13,18 @@ var swiper = new Swiper('.swiper-container', {
 var swiperAdvantages = new Swiper('.swiper-advantages', {
     slidesPerView: 'auto',
     spaceBetween: 30,
+    pagination: {
+        el: '.swiper-pagination',
+    },
     breakpoints: {
         576: {
             slidesPerView: 2,
         },
+        1200: {
+            pagination: false,
+        }
     },
-    pagination: {
-        el: '.swiper-pagination',
-    },
+
 });
 
 var swiperIntro = new Swiper('.swiper-intro', {
@@ -32,3 +36,7 @@ var swiperIntro = new Swiper('.swiper-intro', {
     loop: true,
     speed: 1000,
 });
+
+if (window.innerWidth > 1200) {
+    swiperAdvantages.destroy();
+}

@@ -1,6 +1,7 @@
 var swiper = new Swiper('.swiper-container', {
     direction: 'vertical',
     mousewheel: true,
+    // initialSlide: 1,
     breakpoints: {
         576: {
             effect: false,
@@ -27,11 +28,11 @@ var swiperAdvantages = new Swiper('.swiper-advantages', {
 
 var swiperIntro = new Swiper('.swiper-intro', {
     autoplay: {
-        delay: 2500,
+        delay: 1000,
         disableOnInteraction: false,
     },
     loop: true,
-    speed: 1000,
+    speed: 3000,
 });
 
 if (window.innerWidth > 1200) {

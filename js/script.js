@@ -10,13 +10,6 @@ $(document).ready(function() {
         $ind = $(this).attr('slideTo');
         swiper.slideTo($ind);
     });
-
-    $('.swiper_button').click(function(e) {
-        e.preventDefault();
-        $imgPath = $('.swiper-slide-active>img').attr('src');
-        $('.intro>.container').css('background-image', `url(${$imgPath})`)
-    });
-
 });
 // --------------------------------------------
 let vh = window.innerHeight * 0.01;
@@ -46,9 +39,11 @@ function setBubble() {
     bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
 }
 // --------------------------------------------
-swiper.on('slideChangeTransitionStart', function() {
-    $('.section_title').removeClass('activated');
-});
-swiper.on('slideChangeTransitionEnd', function() {
-    $('.section_title').addClass('activated');
+$('.button').click(function(e) {
+    e.preventDefault();
+    setTimeout(() => {
+        $('.feedback').delay(1000).addClass('form_sended');
+    }, 500)
+    return false;
+
 });

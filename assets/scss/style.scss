@@ -97,6 +97,15 @@ $screen_xxl: 1400px;
             margin-right: -25px;
             top: 50%;
             margin-top: -25px;
+            transform: translateX(600px);
+            opacity: 0;
+        }
+        &.activated {
+            &::before {
+                transform: translateX(0);
+                opacity: 1;
+                transition: 1s;
+            }
         }
     }
     .button {
@@ -190,8 +199,6 @@ section {
 // --- intro
 .intro {
     padding: 0;
-    background: url(../img/intro-mobile.jpg) no-repeat 50% 0%;
-    background-size: cover;
     position: relative;
     overflow: hidden;
     &::after {
@@ -207,6 +214,9 @@ section {
         z-index: 1;
         padding-top: 25px;
         color: #fff;
+        background: no-repeat 100% 0%;
+        background-image: url(../img/intro-slide-2.jpg);
+        background-size: cover;
     }
     .brand_title {
         color: #fff;
@@ -327,18 +337,17 @@ section {
         }
     }
     @media (min-width: $screen_sm) {
-        background: #fff url(../img/intro-desktop.jpg) no-repeat 100% 0;
-        background-size: 50%;
         &::after {
             content: none;
         }
         .container {
             color: #000;
+            background-size: auto 51%;
         }
         .contacts_wrap {
             padding-bottom: 10px;
             border-bottom: 1px solid #000;
-            width: 65%;
+            width: 70%;
             .contacts_list li a {
                 color: #000;
                 font-size: 24px;
@@ -373,7 +382,7 @@ section {
                 transform: translate(0, 0) scale(1);
                 flex-direction: row;
                 justify-content: space-between;
-                align-items: center;
+                align-items: flex-end;
                 .menu {
                     .menu_item {
                         transition: .3s;
@@ -395,10 +404,10 @@ section {
                 width: 266px;
                 overflow: hidden;
                 position: relative;
-                &::after {
-                    content: "";
+                .swiper_button {
+                    cursor: pointer;
                     position: absolute;
-                    z-index: 1;
+                    z-index: 2;
                     left: 0;
                     top: 0;
                     width: 100px;
@@ -407,11 +416,21 @@ section {
                 }
                 .swiper-slide {
                     text-align: center;
+                    height: 400px;
+                    img {
+                        height: 100%;
+                        width: 100%;
+                        object-fit: cover;
+                    }
                 }
             }
         }
     }
     @media (min-width: $screen_sm) and (max-width: $screen_lg_max) {
+        .container {
+            padding-left: 0;
+            margin-right: 0;
+        }
         .menu_area {
             position: relative;
             .menu_wrap {
@@ -419,20 +438,28 @@ section {
             }
         }
     }
+    @media (min-width: $screen_sm) {
+        .intro_bottom_text {
+            b {
+                font-size: 24px;
+            }
+            p {
+                line-height: 1;
+                margin-bottom: 0;
+            }
+            position: absolute;
+            bottom: 25px;
+            right: 25px;
+        }
+    }
     @media (min-width: $screen_xl) {
         background-image: none;
         .container {
-            background: url(../img/intro-desktop.jpg) no-repeat 100% 0%;
-            background-size: auto 86%;
+            background-size: auto 85%;
         }
         .intro_preview {
             font-size: 30px;
             margin-top: 10px;
-        }
-        .intro_bottom_text {
-            position: absolute;
-            bottom: 0;
-            right: 0;
         }
         .menu_area {
             height: auto;
@@ -455,7 +482,7 @@ section {
             }
         }
         .swiper-intro {
-            margin-left: 30%;
+            margin-left: 26%;
         }
     }
     @media (min-width: $screen_xxl) {

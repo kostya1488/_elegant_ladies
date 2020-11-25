@@ -1,13 +1,11 @@
 var swiper = new Swiper('.swiper-container', {
     direction: 'vertical',
     mousewheel: true,
-    // effect: 'coverflow',
-    // initialSlide: 1,
     breakpoints: {
         576: {
             effect: false,
         },
-    }
+    },
 });
 
 var swiperAdvantages = new Swiper('.swiper-advantages', {
@@ -32,7 +30,6 @@ var swiperIntro = new Swiper('.swiper-intro', {
         delay: 2500,
         disableOnInteraction: false,
     },
-    spaceBetween: 30,
     loop: true,
     speed: 1000,
 });

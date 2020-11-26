@@ -21,19 +21,26 @@ window.addEventListener('resize', () => {
 });
 
 // --------------------------------------------
+swiper.on('slideChangeTransitionStart', () => {
+    let activeSlideIndex = swiper.activeIndex;
+    let activeSlide = swiper.slides[activeSlideIndex];
+    activeSlide.classList.add('animated_title');
+});
+// --------------------------------------------
+// --------------------------------------------
 // input range slider
 const bubble = document.getElementById("bubble");
 const range = document.getElementById("range");
 
 setBubble();
 range.addEventListener("input", setBubble)
+var min = range.min;
+var max = range.max;
 
 function setBubble() {
-    const val = range.value
-    const min = range.min;
-    const max = range.max;
+    var val = range.value
 
-    const newVal = Number(((val - min) * 100) / (max - min));
+    var newVal = Number(((val - min) * 100) / (max - min));
 
     bubble.innerHTML = val;
     bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
@@ -42,8 +49,12 @@ function setBubble() {
 $('.button').click(function(e) {
     e.preventDefault();
     setTimeout(() => {
-        $('.feedback').delay(1000).addClass('form_sended');
-    }, 500)
+        $('.form_response').addClass('visible')
+    }, 500);
     return false;
+});
+$('.close_button').click(function(e) {
+    e.preventDefault();
+    $(this).parent().removeClass('visible');
 
 });

@@ -66,7 +66,7 @@
       margin-top: -25px;
       transform: translateX(600px);
       opacity: 1; }
-  .body .swiper-slide.swiper-slide-active .section_title::before {
+  .body .swiper-slide.animated_title .section_title::before {
     transform: translateX(0);
     opacity: 1;
     transition: 1s; }
@@ -120,7 +120,6 @@
   .body .brand_title {
     font-family: 'Roboto Slab', serif;
     text-transform: uppercase;
-    color: #000;
     position: relative;
     max-width: 200px;
     margin-top: 20px; }
@@ -129,7 +128,8 @@
       z-index: 1;
       font-size: 36px;
       font-weight: 900;
-      line-height: 1.4; }
+      line-height: 1.4;
+      color: #000; }
     .body .brand_title::before {
       content: "";
       position: absolute;
@@ -140,6 +140,12 @@
       width: 100px;
       background-color: rgba(235, 87, 87, 0.5);
       border-radius: 50%; }
+  .body .hidden {
+    visibility: hidden;
+    opacity: 0; }
+  .body .visible {
+    visibility: visible;
+    opacity: 1; }
 
 section {
   overflow: hidden; }
@@ -559,22 +565,25 @@ section {
     font-size: 42px;
     color: #fff;
     -webkit-text-stroke: 1px black;
-    transition: .3s; }
+    transition: .3s;
+    padding: 15px 0;
+    width: 50%; }
     .steps li .item_text {
-      z-index: 1;
+      z-index: 3;
       transition: .5s;
       cursor: pointer; }
     .steps li .img_wrap {
       display: inline-block;
       position: absolute;
+      z-index: 1;
       top: 50%;
       margin-top: -150px;
       margin-left: -60px;
       width: 450px;
       height: 300px;
       opacity: 0;
-      transition: .6s;
-      transform: translateX(150px); }
+      visibility: hidden;
+      transform: translateX(200px); }
       .steps li .img_wrap img {
         width: 100%;
         height: 100%;
@@ -587,14 +596,17 @@ section {
       font-family: 'Roboto', sans-serif;
       transition: .5s; }
     .steps li:hover {
-      transform: translateX(50px); }
+      transform: translateX(50px) scale(1.06); }
       .steps li:hover .item_text {
         position: relative;
         color: #EB5757;
         -webkit-text-stroke: 1px rgba(0, 0, 0, 0); }
       .steps li:hover .img_wrap {
+        z-index: 2;
         opacity: 1;
-        transform: translateX(0); }
+        visibility: visible;
+        transform: translateX(0);
+        transition: .3s; }
       .steps li:hover::before {
         -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
         color: #EB5757; } }
@@ -749,6 +761,13 @@ section {
   .vacancies .vacancies_wrap .vacancy .img_wrap img {
     object-position: 0px -35px; } }
 
+@media (min-width: 1400px) {
+  .vacancies .vacancies_wrap {
+    align-items: center; }
+    .vacancies .vacancies_wrap .vacancy {
+      height: 100%;
+      max-height: 700px; } }
+
 .advantages {
   padding-top: 22px; }
   .advantages .advantages_item {
@@ -838,7 +857,6 @@ section {
   margin-bottom: 25px; }
 
 .requirements .requirements_list {
-  height: 100%;
   display: flex;
   flex-direction: column; }
   .requirements .requirements_list li {
@@ -851,6 +869,7 @@ section {
 
 @media (max-width: 1199.98px) {
   .requirements .requirements_list {
+    height: 100%;
     justify-content: space-around; }
     .requirements .requirements_list li + li {
       margin-top: 15px; } }
@@ -867,7 +886,14 @@ section {
     margin: 0 auto;
     padding-left: 12px;
     padding-right: 12px; }
+  .requirements .requirements_list_wrap {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%; }
   .requirements .requirements_list li {
+    height: 80px;
     flex: auto;
     display: flex;
     align-items: center; }
@@ -891,13 +917,13 @@ section {
   position: relative; }
   .feedback .form_response {
     position: absolute;
-    z-index: -1;
+    z-index: 1;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     background-color: #EB5757;
-    transition: .3s;
+    transition: .8s;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -905,12 +931,23 @@ section {
     font-size: 48px;
     text-align: center;
     color: #FFFFFF;
-    opacity: 0;
     transform: translateY(-100vh); }
-  .feedback.form_sended .form_response {
-    transform: translateY(0);
-    z-index: 1;
-    opacity: 1; }
+    .feedback .form_response .close_button {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      line-height: 1;
+      z-index: 2;
+      top: 50px;
+      right: 50px;
+      color: #fff;
+      font-size: 34px;
+      cursor: pointer; }
+    .feedback .form_response.visible {
+      transform: translateY(0);
+      visibility: visible;
+      opacity: 1; }
   .feedback .feedback_title {
     font-weight: 300;
     font-size: 24px;
@@ -947,6 +984,21 @@ section {
     outline: none;
     border: none;
     border-bottom: 1px solid #F1F2F3; }
+  .feedback form .input-placeholder {
+    position: relative; }
+    .feedback form .input-placeholder .input:valid + .placeholder {
+      display: none; }
+    .feedback form .input-placeholder .placeholder {
+      position: absolute;
+      pointer-events: none;
+      bottom: 0;
+      padding: 10px 0;
+      font-size: 14px;
+      font-weight: 300;
+      margin: auto;
+      color: rgba(29, 31, 34, 0.7); }
+      .feedback form .input-placeholder .placeholder span {
+        color: rgba(255, 0, 0, 0.7); }
   .feedback .slider {
     width: 100%;
     position: relative; }
@@ -988,7 +1040,7 @@ section {
       margin-top: -15px;
       width: 30px;
       text-align: center;
-      left: 50%;
+      left: 15.5%;
       font-size: 14px;
       transform: translateX(-50%); }
   .feedback .radio_wrap .radio_item {
@@ -1035,7 +1087,7 @@ section {
   .faq .accordion .item_title {
     font-size: 15px;
     color: #EB5757;
-    padding: 10px 15px;
+    padding: 10px 0;
     transition: .3s;
     border-bottom: 1px solid #F1F2F3; }
   .faq .accordion .collapsed .item_title {
@@ -1057,3 +1109,9 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: center; }
+
+.contacts .brand_title {
+  cursor: pointer; }
+  .contacts .brand_title:hover {
+    margin-top: 20px;
+    color: #000; }

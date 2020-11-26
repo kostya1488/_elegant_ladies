@@ -973,6 +973,8 @@ section {
     font-size: 14px; }
     .feedback .input_text--small {
       font-size: 11px; }
+  .feedback form .input_text {
+    padding-left: 15px; }
   .feedback form .input {
     width: 100%;
     font-weight: 300;
@@ -980,25 +982,32 @@ section {
     line-height: 16px;
     color: #1D1F22;
     margin-top: 10px;
-    padding: 10px 0;
+    padding: 10px 15px;
     outline: none;
     border: none;
     border-bottom: 1px solid #F1F2F3; }
   .feedback form .input-placeholder {
+    margin-top: 10px;
     position: relative; }
-    .feedback form .input-placeholder .input:valid + .placeholder {
-      display: none; }
+    .feedback form .input-placeholder .input {
+      margin-top: 0; }
+      .feedback form .input-placeholder .input:focus + .placeholder {
+        transform: translateY(35px);
+        color: rgba(235, 87, 87, 0.7); }
+      .feedback form .input-placeholder .input:focus {
+        border-bottom-color: #EB5757; }
     .feedback form .input-placeholder .placeholder {
+      transition: .3s;
       position: absolute;
       pointer-events: none;
       bottom: 0;
-      padding: 10px 0;
+      padding: 10px 15px;
       font-size: 14px;
       font-weight: 300;
       margin: auto;
       color: rgba(29, 31, 34, 0.7); }
       .feedback form .input-placeholder .placeholder span {
-        color: rgba(255, 0, 0, 0.7); }
+        color: rgba(235, 87, 87, 0.7); }
   .feedback .slider {
     width: 100%;
     position: relative; }

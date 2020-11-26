@@ -1259,6 +1259,9 @@ section {
         }
     }
     form {
+        .input_text {
+            padding-left: 15px;
+        }
         .input {
             width: 100%;
             font-weight: 300;
@@ -1266,28 +1269,36 @@ section {
             line-height: 16px;
             color: #1D1F22;
             margin-top: 10px;
-            padding: 10px 0;
+            padding: 10px 15px;
             outline: none;
             border: none;
             border-bottom: 1px solid #F1F2F3;
         }
         .input-placeholder {
+            margin-top: 10px;
             position: relative;
-            .input:valid+.placeholder {
-                display: none;
+            .input {
+                margin-top: 0;
+                &:focus+.placeholder {
+                    transform: translateY(35px);
+                    color: rgba(#EB5757, .7);
+                }
+                &:focus {
+                    border-bottom-color: #EB5757;
+                }
             }
             .placeholder {
+                transition: .3s;
                 position: absolute;
                 pointer-events: none;
                 bottom: 0;
-                padding: 10px 0;
+                padding: 10px 15px;
                 font-size: 14px;
                 font-weight: 300;
                 margin: auto;
                 color: rgba(#1D1F22, .7);
                 span {
-                    color: rgba(red, .7);
-                    ;
+                    color: rgba(#EB5757, .7);
                 }
             }
         }

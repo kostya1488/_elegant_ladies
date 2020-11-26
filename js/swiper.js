@@ -1,6 +1,7 @@
 var swiper = new Swiper('.swiper-container', {
     direction: 'vertical',
     mousewheel: true,
+    // initialSlide: 6,
     breakpoints: {
         576: {
             effect: false,

@@ -19,7 +19,6 @@ function sendAjaxForm(ajax_form, url) {
         },
         error: function(response) {
             alert("error");
-
         }
     });
 

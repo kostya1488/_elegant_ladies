@@ -177,7 +177,7 @@ $screen_xxl: 1400px;
             font-size: 36px;
             font-weight: 900;
             line-height: 1.4;
-            color: #000;
+            // color: #000;
         }
         &::before {
             content: "";
@@ -369,8 +369,8 @@ section {
             }
         }
         .brand_title {
-            color: #000;
             span {
+                color: #000;
                 font-size: 68px;
                 line-height: 1;
             }
@@ -585,6 +585,11 @@ section {
             padding-left: 25px;
             padding-right: 25px;
         }
+    }
+    @media (max-width: $screen_lg_max) {
+        .image_wrap {
+            flex: auto;
+        }
         .image_inner_wrap {
             height: 100%;
             .image_promo {
@@ -592,11 +597,6 @@ section {
                 height: 100%;
                 object-fit: cover;
             }
-        }
-    }
-    @media (max-width: $screen_lg_max) {
-        .image_wrap {
-            flex: auto;
         }
     }
     @media (min-width: $screen_sm) and (max-width: $screen_lg_max) {
@@ -723,6 +723,7 @@ section {
     }
     @media (min-width: $screen_xl) and (max-width: $screen_xl_max) {
         .container {
+            padding-top: 50px;
             padding-bottom: 50px;
         }
     }
@@ -733,11 +734,10 @@ section {
         li {
             font-weight: 500;
             letter-spacing: 1;
-            font-size: 42px;
+            font-size: 40px;
             color: #fff;
             -webkit-text-stroke: 1px rgb(0, 0, 0);
             transition: .3s;
-            padding: 15px 0;
             width: 50%;
             .item_text {
                 z-index: 3;
@@ -998,7 +998,7 @@ section {
 // === / vacancies
 // --- advantages
 .advantages {
-    padding-top: 22px;
+    // padding-top: 22px;
     .advantages_item {
         display: flex;
         flex-direction: column;
@@ -1127,6 +1127,9 @@ section {
         }
     }
     @media (max-width: $screen_lg_max) {
+        .requirements_list_wrap {
+            height: 100%;
+        }
         .requirements_list {
             height: 100%;
             justify-content: space-around;
@@ -1158,7 +1161,7 @@ section {
         }
         .requirements_list {
             li {
-                height: 80px;
+                height: 70px;
                 flex: auto;
                 display: flex;
                 align-items: center;
@@ -1384,6 +1387,20 @@ section {
             }
         }
     }
+    @media (max-width: $screen_xs_max) {
+        .slider {
+            margin-top: 20px;
+        }
+    }
+    @media (max-width: $screen_lg_max) {
+        .form_response {
+            font-size: 28px;
+            .close_button {
+                top: 25px;
+                right: 10px;
+            }
+        }
+    }
     @media (min-width: $screen_xl) {
         .image_wrap {
             width: 100%;
@@ -1452,6 +1469,9 @@ section {
     }
     .brand_title {
         cursor: pointer;
+        span {
+            color: #000;
+        }
         &:hover {
             margin-top: 20px;
             color: #000;

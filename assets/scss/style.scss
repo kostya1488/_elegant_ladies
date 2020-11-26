@@ -506,7 +506,7 @@ section {
             padding-bottom: 25px;
         }
     }
-    @media (min-width: 1900px) {
+    @media (min-height: 800px) {
         .menu_area {
             .menu_wrap {
                 align-items: flex-start;
@@ -802,7 +802,7 @@ section {
 // === / steps
 // --- vacancies
 .vacancies {
-    &.swiper-slide-active {
+    &.vacancies_visited {
         .vacancy {
             transition: .6s;
         }

@@ -21,10 +21,15 @@ window.addEventListener('resize', () => {
 });
 
 // --------------------------------------------
-swiper.on('slideChangeTransitionStart', () => {
+swiper.on('slideChange', () => {
     let activeSlideIndex = swiper.activeIndex;
     let activeSlide = swiper.slides[activeSlideIndex];
     activeSlide.classList.add('animated_title');
+
+    if (activeSlideIndex == 3) {
+        activeSlide.classList.add('vacancies_visited');
+
+    }
 });
 // --------------------------------------------
 // --------------------------------------------

@@ -378,7 +378,7 @@ section {
         font-size: 36px; }
     .intro .intro_bottom_text {
       padding-bottom: 25px; } }
-  @media (min-width: 1900px) {
+  @media (min-height: 800px) {
     .intro .menu_area .menu_wrap {
       align-items: flex-start; }
     .intro .swiper-intro {
@@ -609,20 +609,20 @@ section {
         -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
         color: #EB5757; } }
 
-.vacancies.swiper-slide-active .vacancy {
+.vacancies.vacancies_visited .vacancy {
   transition: .6s; }
 
-.vacancies.swiper-slide-active .vacancy:nth-child(1) {
+.vacancies.vacancies_visited .vacancy:nth-child(1) {
   transform: translateX(0);
   transition-delay: 1s;
   opacity: 1; }
 
-.vacancies.swiper-slide-active .vacancy:nth-child(2) {
+.vacancies.vacancies_visited .vacancy:nth-child(2) {
   transform: translateX(0);
   transition-delay: .6s;
   opacity: 1; }
 
-.vacancies.swiper-slide-active .vacancy:nth-child(3) {
+.vacancies.vacancies_visited .vacancy:nth-child(3) {
   transition-delay: .3s;
   transform: translateX(0);
   opacity: 1; }
